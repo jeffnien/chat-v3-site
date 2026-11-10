@@ -1,0 +1,78 @@
+* { box-sizing: border-box; }
+:root { color-scheme: dark; --bg: #050505; --panel: #0d0d0d; --line: #292929; --text: #f5f5f5; --muted: #aaa; --soft: #888; }
+html { scroll-behavior: smooth; }
+body { min-height: 100vh; display: flex; flex-direction: column; margin: 0; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.65; }
+a, button, input { font: inherit; }
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+.site-header { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 18px max(24px, calc((100vw - 1120px) / 2)); border-bottom: 1px solid var(--line); background: rgba(5, 5, 5, .96); }
+.brand { flex: 0 0 auto; color: #fff; font-size: 17px; font-weight: 750; letter-spacing: 2.5px; text-decoration: none; }
+.site-nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px 22px; }
+.site-nav a { color: var(--muted); font-size: 13px; letter-spacing: .7px; text-decoration: none; transition: color .2s; }
+.site-nav a:hover, .site-nav a[aria-current="page"] { color: #fff; }
+main { flex: 1; width: min(100% - 40px, 900px); margin: 58px auto 72px; }
+.page-heading { margin: 0 0 22px; font-size: clamp(27px, 5vw, 36px); font-weight: 350; letter-spacing: 2px; line-height: 1.25; }
+.eyebrow { margin: 0 0 10px; color: var(--soft); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
+.lead { max-width: 680px; color: #c2c2c2; font-size: 16px; }
+.panel { padding: clamp(22px, 4vw, 32px); border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+.section { margin-top: 42px; }
+.section h2 { margin: 0 0 16px; padding-bottom: 10px; border-bottom: 1px solid var(--line); font-size: 20px; font-weight: 400; letter-spacing: 1px; }
+.button-link { display: inline-block; padding: 12px 22px; border: 1px solid #fff; border-radius: 4px; background: #fff; color: #000; font-size: 14px; font-weight: 700; letter-spacing: .5px; text-decoration: none; transition: background .2s, color .2s; }
+.button-link:hover { background: transparent; color: #fff; }
+.site-footer { margin-top: auto; padding: 28px 20px; border-top: 1px solid var(--line); color: #999; font-size: 12px; letter-spacing: .7px; text-align: center; }
+.home-hero { display: grid; min-height: 54vh; align-content: center; justify-items: center; padding: 35px 0; text-align: center; }
+.home-hero .brand-mark { margin: 0 0 12px; color: #fff; font-size: clamp(42px, 9vw, 72px); font-weight: 750; letter-spacing: clamp(4px, 1.5vw, 10px); line-height: 1.1; }
+.home-hero .lead { margin: 0 auto 28px; }
+.prose { color: #c2c2c2; }
+.prose p { margin: 0 0 18px; }
+.prose p:last-child { margin-bottom: 0; }
+.info-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.info-item dt { margin-bottom: 4px; color: var(--soft); font-size: 12px; letter-spacing: 1.5px; }
+.info-item dd { margin: 0; font-size: 17px; }
+.course-list { display: grid; gap: 18px; }
+.course-list h3 { margin: 0 0 4px; font-size: 16px; font-weight: 600; }
+.course-list p { margin: 0; color: #bbb; font-size: 14px; }
+.notice { margin: 20px 0 0; color: var(--muted); font-size: 13px; }
+.contact-card { max-width: 680px; margin: 0 auto; text-align: center; }
+.contact-card .lead { margin: 0 auto 28px; }
+/* 社員專區：前端密碼只適合當作入口提示，不能提供真正的存取控制。 */
+.login-box { max-width: 440px; margin: 36px auto; text-align: center; }
+.login-box .page-heading { margin-bottom: 12px; font-size: 27px; }
+.login-copy { margin: 0 0 22px; color: var(--muted); font-size: 14px; }
+.login-form { display: grid; gap: 12px; text-align: left; }
+.login-form label { font-size: 13px; color: #ccc; }
+.login-form input { width: 100%; padding: 12px 14px; border: 1px solid #444; border-radius: 4px; background: #000; color: #fff; }
+.login-form input:focus-visible { border-color: #fff; }
+.login-form button, .playlist-item { border: 1px solid #fff; border-radius: 4px; background: #fff; color: #000; font-weight: 700; cursor: pointer; }
+.login-form button { padding: 12px; letter-spacing: 1px; }
+.login-form button:hover { background: #ddd; }
+.error { min-height: 1.5em; margin: 0; color: #ff8585; font-size: 13px; }
+.hidden { display: none !important; }
+.video-layout { display: grid; grid-template-columns: minmax(0, 2fr) minmax(245px, 1fr); gap: 26px; align-items: start; }
+.video-container { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line); border-radius: 5px; background: #000; }
+.video-container iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-title { margin-top: 12px; font-size: 17px; }
+.playlist { max-height: 490px; overflow-y: auto; padding: 14px; border: 1px solid var(--line); border-radius: 7px; background: var(--panel); }
+.playlist > h2 { margin: 0; padding-bottom: 10px; border-bottom: 1px solid var(--line); color: #ccc; font-size: 14px; font-weight: 500; }
+.playlist-section-title { margin: 16px 0 8px; color: #aaa; font-size: 12px; letter-spacing: 1px; }
+.playlist-items { display: grid; gap: 6px; }
+.playlist-item { width: 100%; padding: 9px 11px; border-color: #333; background: #050505; color: #ccc; font-size: 13px; font-weight: 400; text-align: left; }
+.playlist-item:hover { background: #1b1b1b; color: #fff; }
+.playlist-item.active { border-color: #fff; background: #fff; color: #000; font-weight: 700; }
+.notes-section { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; margin-top: 32px; }
+.notes-section p { margin: 0; color: #ccc; font-size: 14px; }
+.notes-section .button-link { padding: 9px 16px; font-size: 13px; }
+.reminder { margin: 22px 0 0; color: #aaa; font-size: 13px; text-align: center; }
+@media (max-width: 760px) {
+  .site-header { flex-direction: column; gap: 12px; padding: 14px 18px; }
+  .site-nav { justify-content: center; gap: 7px 15px; }
+  .site-nav a { font-size: 12px; }
+  main { width: min(100% - 30px, 620px); margin: 36px auto 52px; }
+  .video-layout { grid-template-columns: 1fr; gap: 20px; }
+  .playlist { max-height: 360px; }
+  .info-grid { grid-template-columns: 1fr; }
+  .home-hero { min-height: 48vh; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; }
+}
